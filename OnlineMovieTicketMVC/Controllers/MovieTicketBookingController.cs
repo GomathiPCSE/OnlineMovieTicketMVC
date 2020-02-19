@@ -6,7 +6,7 @@ namespace OnlineMovieTicketMVC.Controllers
 {
     public class MovieTicketBookingController : Controller
     {
-        public ActionResult SignUp(UserClass user)
+        public ActionResult SignUp(UserEntity user)
         {
             UserRepository.SignUp(user);
             return View();

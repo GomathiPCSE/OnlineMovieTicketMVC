@@ -5,7 +5,7 @@
         User,
         TheatreManager
     }
-    public class UserClass
+    public class UserEntity
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

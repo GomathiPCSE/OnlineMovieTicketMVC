@@ -6,8 +6,8 @@ namespace MovieTicketBooking.DAL
 {  
     public class UserRepository
     {
-        public static List<UserClass> userDb = new List<UserClass>();
-        public static void SignUp(UserClass user)
+        public static List<UserEntity> userDb = new List<UserEntity>();
+        public static void SignUp(UserEntity user)
         {
             userDb.Add(user);
         }
