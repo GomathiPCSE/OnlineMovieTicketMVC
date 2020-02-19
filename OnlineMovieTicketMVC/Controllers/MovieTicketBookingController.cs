@@ -1,7 +1,6 @@
 ﻿using MovieTicketBooking.DAL;
 using MovieTicketBooking.Entity;
 using System.Web.Mvc;
-
 namespace OnlineMovieTicketMVC.Controllers
 {
     public class MovieTicketBookingController : Controller

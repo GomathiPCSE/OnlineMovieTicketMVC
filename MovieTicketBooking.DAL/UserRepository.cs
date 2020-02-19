@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using MovieTicketBooking.Entity;
-
 namespace MovieTicketBooking.DAL
 {  
     public class UserRepository
