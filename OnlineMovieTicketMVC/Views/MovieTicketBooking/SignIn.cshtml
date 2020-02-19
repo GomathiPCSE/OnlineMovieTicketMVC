@@ -1,0 +1,37 @@
+﻿@model MovieTicketBooking.Entity.UserClass
+
+@{
+    ViewBag.Title = "SignIn";
+    Layout = "~/Views/Shared/Index.cshtml";
+}
+<h2>SignIn</h2>
+
+@using (Html.BeginForm("SignIn", "MovieTicketBooking", FormMethod.Post))
+{
+    <table cellpadding="10">
+        <tr>
+            <td>
+                @Html.Label("User Name")
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.MailId)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Password")
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Password)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
+}
+
+
+

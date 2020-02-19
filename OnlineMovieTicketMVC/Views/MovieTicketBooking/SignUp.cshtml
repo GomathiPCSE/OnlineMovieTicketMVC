@@ -1,0 +1,89 @@
+﻿@model MovieTicketBooking.Entity.UserClass
+
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/Index.cshtml";
+}
+
+<h2>SignUp</h2>
+
+@using (Html.BeginForm("SignUp", "MovieTicketBooking", FormMethod.Post))
+{
+    <table cellpadding="10">
+        <tr>
+            <td>
+                @Html.Label("First Name")
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.FirstName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Last Name")
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.LastName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Mobile Number")
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.MobileNumber)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Email")
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.MailId)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Password")
+            </td>
+            <td>
+                @Html.PasswordFor(Model => Model.Password)
+            </td>
+            }
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Confirm Password")
+            </td>
+            <td>
+                @Html.PasswordFor(Model => Model.ConfirmPassword)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Gender")
+            </td>
+            <td>
+                @Html.RadioButtonFor(Model => Model.Gender, "male")Male
+                @Html.RadioButtonFor(Model => Model.Gender, "female") Female
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("User Role")
+            </td>
+            <td>
+                @Html.EnumDropDownListFor(model => model.UserRole, "select a role")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
+}
+
+
+
+
