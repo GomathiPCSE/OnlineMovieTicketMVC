@@ -9,10 +9,12 @@ namespace MovieTicketBooking.Entity
     }
     public class UserEntity
     {
-        [DataType(DataType.Text)]
         [Required]
         [MaxLength(30)]
+        [DataType(DataType.Text)]
+        [RegularExpression(@"^[a-zA-Z]+(([',.-][a-zA-Z])?[a-zA-Z]*)*$",ErrorMessage ="Enter valid name")]
         public string FirstName { get; set; }
+        [DataType(DataType.Text)]
         public string LastName { get; set; }
         [DataType(DataType.PhoneNumber)]
         [Required]
@@ -27,8 +29,8 @@ namespace MovieTicketBooking.Entity
         [Required]
         [ MaxLength(20)]
         public string ConfirmPassword { get; set; }
-        [Required]
         public string Gender { get; set; }
+        [Required]
         public Role UserRole { get; set; }
         
     }

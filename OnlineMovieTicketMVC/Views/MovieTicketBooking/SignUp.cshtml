@@ -79,6 +79,7 @@
             </td>
             <td>
                 @Html.EnumDropDownListFor(model => model.UserRole, "select a role")
+                @Html.ValidationMessageFor(Model => Model.UserRole)
             </td>
         </tr>
         <tr>
