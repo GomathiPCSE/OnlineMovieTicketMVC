@@ -20,7 +20,6 @@ namespace OnlineMovieTicketMVC.Controllers
         {
             return View();
         }
-        // GET: MovieTicketBooking
         public ActionResult Index()
         {
             return View();
