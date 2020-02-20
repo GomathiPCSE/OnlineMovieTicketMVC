@@ -4,59 +4,64 @@
     ViewBag.Title = "SignUp";
     Layout = "~/Views/Shared/Index.cshtml";
 }
-
 <h2>SignUp</h2>
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 @using (Html.BeginForm("SignUp", "MovieTicketBooking", FormMethod.Post))
 {
     <table cellpadding="10">
         <tr>
             <td>
-                @Html.Label("First Name")
+                @Html.LabelFor(Model => Model.FirstName)
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.FirstName)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Last Name")
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.LastName)
+                @Html.EditorFor(model => model.FirstName)
+                @Html.ValidationMessageFor(model => model.FirstName)
             </td>
         </tr>
         <tr>
             <td>
-                @Html.Label("Mobile Number")
+                @Html.LabelFor(Model => Model.LastName)
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.MobileNumber)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Email")
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.MailId)
+                @Html.EditorFor(Model => Model.LastName)
+                @Html.ValidationMessageFor(Model => Model.LastName)
             </td>
         </tr>
         <tr>
             <td>
-                @Html.Label("Password")
+                @Html.LabelFor(Model => Model.MobileNumber)
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.MobileNumber)
+                @Html.ValidationMessageFor(Model => Model.MobileNumber)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.MailId)
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.MailId)
+                @Html.ValidationMessageFor(Model => Model.MailId)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Password)
             </td>
             <td>
                 @Html.PasswordFor(Model => Model.Password)
+                @Html.ValidationMessageFor(Model => Model.Password)
             </td>
-            }
         </tr>
         <tr>
             <td>
-                @Html.Label("Confirm Password")
+                @Html.LabelFor(Model => Model.ConfirmPassword)
             </td>
             <td>
                 @Html.PasswordFor(Model => Model.ConfirmPassword)
+                @Html.ValidationMessageFor(Model => Model.ConfirmPassword)
             </td>
         </tr>
         <tr>
@@ -82,6 +87,7 @@
             </td>
         </tr>
     </table>
+
 }
 
 
