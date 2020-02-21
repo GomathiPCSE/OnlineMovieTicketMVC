@@ -2,94 +2,96 @@
 
 @{
     ViewBag.Title = "SignUp";
-    Layout = "~/Views/Shared/Index.cshtml";
+
 }
 <h2>SignUp</h2>
-@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
 
-@using (Html.BeginForm("SignUp", "MovieTicketBooking", FormMethod.Post))
-{
-    <table cellpadding="10">
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.FirstName)
-            </td>
-            <td>
-                @Html.EditorFor(model => model.FirstName)
-                @Html.ValidationMessageFor(model => model.FirstName)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.LastName)
-            </td>
-            <td>
-                @Html.EditorFor(Model => Model.LastName)
-                @Html.ValidationMessageFor(Model => Model.LastName)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.MobileNumber)
-            </td>
-            <td>
-                @Html.EditorFor(Model => Model.MobileNumber)
-                @Html.ValidationMessageFor(Model => Model.MobileNumber)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.MailId)
-            </td>
-            <td>
-                @Html.EditorFor(Model => Model.MailId)
-                @Html.ValidationMessageFor(Model => Model.MailId)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.Password)
-            </td>
-            <td>
-                @Html.PasswordFor(Model => Model.Password)
-                @Html.ValidationMessageFor(Model => Model.Password)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.ConfirmPassword)
-            </td>
-            <td>
-                @Html.PasswordFor(Model => Model.ConfirmPassword)
-                @Html.ValidationMessageFor(Model => Model.ConfirmPassword)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Gender")
-            </td>
-            <td>
-                @Html.RadioButtonFor(Model => Model.Gender, "male")Male
-                @Html.RadioButtonFor(Model => Model.Gender, "female") Female
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("User Role")
-            </td>
-            <td>
-                @Html.EnumDropDownListFor(model => model.UserRole, "select a role")
-                @Html.ValidationMessageFor(Model => Model.UserRole)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="submit" />
-            </td>
-        </tr>
-    </table>
-
-}
+    @using (Html.BeginForm("SignUp", "MovieTicketBooking", FormMethod.Post))
+    {
+        <table cellpadding="10">
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.FirstName)
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.FirstName)
+                    @Html.ValidationMessageFor(model => model.FirstName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.LastName)
+                </td>
+                <td>
+                    @Html.EditorFor(Model => Model.LastName)
+                    @Html.ValidationMessageFor(Model => Model.LastName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.MobileNumber)
+                </td>
+                <td>
+                    @Html.EditorFor(Model => Model.MobileNumber)
+                    @Html.ValidationMessageFor(Model => Model.MobileNumber)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.MailId)
+                </td>
+                <td>
+                    @Html.EditorFor(Model => Model.MailId)
+                    @Html.ValidationMessageFor(Model => Model.MailId)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.Password)
+                </td>
+                <td>
+                    @Html.PasswordFor(Model => Model.Password)
+                    @Html.ValidationMessageFor(Model => Model.Password)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.ConfirmPassword)
+                </td>
+                <td>
+                    @Html.PasswordFor(Model => Model.ConfirmPassword)
+                    @Html.ValidationMessageFor(Model => Model.ConfirmPassword)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Gender")
+                </td>
+                <td>
+                    @Html.RadioButtonFor(Model => Model.Gender, "male")Male
+                    @Html.RadioButtonFor(Model => Model.Gender, "female") Female
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("User Role")
+                </td>
+                <td>
+                    @Html.EnumDropDownListFor(model => model.UserRole, "select a role")
+                    @Html.ValidationMessageFor(Model => Model.UserRole)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" />
+                </td>
+            </tr>
+        </table>
+    }
+<div style="position:relative">
+    @Html.Partial("_Movies")
+</div>
 
 
 

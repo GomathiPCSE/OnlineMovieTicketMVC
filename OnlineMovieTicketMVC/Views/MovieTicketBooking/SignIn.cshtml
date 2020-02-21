@@ -5,7 +5,6 @@
     Layout = "~/Views/Shared/Index.cshtml";
 }
 <h2>SignIn</h2>
-
 @using (Html.BeginForm("SignIn", "MovieTicketBooking", FormMethod.Post))
 { 
     <table cellpadding="10">
@@ -32,6 +31,10 @@
         </tr>
     </table>
 }
+<div style="position:relative">
+    @Html.Partial("_Movies")
+</div>
+    
 
 
 

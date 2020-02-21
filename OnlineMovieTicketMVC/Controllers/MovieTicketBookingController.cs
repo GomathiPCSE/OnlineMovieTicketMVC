@@ -10,15 +10,20 @@ namespace OnlineMovieTicketMVC.Controllers
         {
             return View();
         }
+        public ActionResult test()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult SignUp(UserEntity user)
         {
             UserRepository.SignUp(user);
             return View();
         }
+        [ActionName("Login")]
         public ActionResult SignIn()
         {
-            return View();
+            return View("SignIn");
         }
         public ActionResult Index()
         {
