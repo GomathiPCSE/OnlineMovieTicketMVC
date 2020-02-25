@@ -1,3 +1,36 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿<style>
+    header {
+        height: 50px;
+        width: 100%;
+        background-color: yellowgreen;
+    }
+
+    nav {
+        float: left;
+        width: 200px;
+        height: 300px;
+        background-color: wheat;
+    }
+
+    footer {
+        background-color: yellowgreen;
+        width: 100%;
+        height: 30px;
+        float: right;
+        text-align: center;
+    }
+</style>
+<header style="text-align:center">
+    <h1>Online Movie Ticket Booking</h1>
+</header>
+<nav>
+    @Html.ActionLink("Sign In", "SignIn")<br /><br />
+    @Html.ActionLink("Sign Up", "SignUp")
+
+</nav>
+<div>
+    @RenderBody()
+</div>
+<footer style="text-align:center;">
+    <div></div>
+</footer>

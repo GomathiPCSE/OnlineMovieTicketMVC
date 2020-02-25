@@ -1,17 +1,16 @@
 ﻿using MovieTicketBooking.DAL;
 using MovieTicketBooking.Entity;
+using System.Collections;
+using System.Collections.Generic;
 using System.Web.Mvc;
 namespace OnlineMovieTicketMVC.Controllers
 {
-    public class MovieTicketBookingController : Controller
+    public class AccountController : Controller
     {
         [HttpGet]
         public ActionResult SignUp()
         {
-            return View();
-        }
-        public ActionResult test()
-        {
+            IEnumerable<UserEntity> UserList = UserRepository.GetDetails();
             return View();
         }
         [HttpPost]
