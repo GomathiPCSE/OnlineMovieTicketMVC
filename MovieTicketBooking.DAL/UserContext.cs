@@ -1,5 +1,4 @@
 ﻿using System.Data.Entity;
-
 namespace MovieTicketBooking.Entity
 {
     public class UserContext : DbContext

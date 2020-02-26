@@ -5,14 +5,16 @@ namespace MovieTicketBooking.DAL
 {  
     public class UserRepository
     {
-        public static void SignUp(UserEntity user)
-        {
-            //userDb.Add(user);
-        }
         public static List<UserEntity> GetDetails()
         {
             UserContext userContext = new UserContext();
             return userContext.UserEntity.ToList();
+        }
+        public static void SignUp(UserEntity user)
+        {
+            UserContext userContext = new UserContext();
+            userContext.UserEntity.Add(user);
+            userContext.SaveChanges();
         }
     }
 }
