@@ -1,0 +1,46 @@
+﻿@model MovieTicketBooking.Entity.Theatre
+
+@{
+    ViewBag.Title = "EditTheatre";
+}
+@Html.AntiForgeryToken()
+<h2>EditTheatre</h2>
+@using (Html.BeginForm("EditTheatre", "Theatre"))
+{
+    @Html.HiddenFor(model => model.TheatreId)
+    <table>
+        <tr>
+            <td>@Html.LabelFor(model => model.TheatreName)</td>
+            <td>
+                @Html.EditorFor(model => model.TheatreName, new { @MaxLength = 40 })
+                @Html.ValidationMessageFor(Model => Model.TheatreName, "", new { style = "color:red;" })
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Address)</td>
+            <td>
+                @Html.EditorFor(model => model.Address, new { @MaxLength = 50 })
+                @Html.ValidationMessageFor(Model => Model.Address, "", new { style = "color:red;" })
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.NoOfScreen)</td>
+            <td>
+                @Html.EditorFor(model => model.NoOfScreen)
+                @Html.ValidationMessageFor(Model => Model.NoOfScreen, "", new { style = "color:red;" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Update" />
+            </td>
+            <td>
+                @Html.ActionLink("Cancel", "DisplayTheatre", "Theatre")
+            </td>
+        </tr>
+    </table>
+
+}
+
+
+

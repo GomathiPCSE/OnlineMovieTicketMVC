@@ -1,20 +1,24 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using MovieTicketBooking.Entity;
 namespace MovieTicketBooking.DAL
-{  
+{
     public class UserRepository
     {
-        public static List<UserEntity> GetDetails()
+        public static string ValidateLogin(UserAccount user)
         {
-            UserContext userContext = new UserContext();
-            return userContext.UserEntity.ToList();
+            using (UserContext userContext = new UserContext())
+            {
+                UserAccount userAccount = userContext.UserEntity.Where(u => u.UserName == user.UserName && u.Password == user.Password).FirstOrDefault();
+                return userAccount.Role;
+            }
         }
-        public static void SignUp(UserEntity user)
+        public static void SignUp(UserAccount user)
         {
-            UserContext userContext = new UserContext();
-            userContext.UserEntity.Add(user);
-            userContext.SaveChanges();
+            using (UserContext userContext = new UserContext())
+            {
+                userContext.UserEntity.Add(user);
+                userContext.SaveChanges();
+            }
         }
     }
 }

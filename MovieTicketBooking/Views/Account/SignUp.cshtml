@@ -1,0 +1,94 @@
+﻿@model OnlineMovieTicketMVC.Models.SignUpModel
+
+@{
+    ViewBag.Title = "SignUp";
+}
+@Html.AntiForgeryToken()
+<h2>SignUp</h2>
+<h2>@ViewBag.message</h2>
+@Html.ValidationSummary(false, "", new { style = "color:red;" })
+
+@using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
+{
+    <table cellpadding="10">
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.FirstName)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.FirstName, new { @MaxLength = 30 })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { style = "color:red;" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.LastName)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.LastName, new { @MaxLength = 30 })
+                @Html.ValidationMessageFor(Model => Model.LastName, "", new { style = "color:red;" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.MobileNumber)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.MobileNumber, new { @MaxLength = 10 })
+                @Html.ValidationMessageFor(Model => Model.MobileNumber, "", new { style = "color:red;" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.MailId)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.MailId, new { @MaxLength = 50 })
+                @Html.ValidationMessageFor(Model => Model.MailId, "", new { style = "color:red;" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Password)
+            </td>
+            <td>
+                @Html.PasswordFor(Model => Model.Password, new { @MaxLength = 20 })
+                @Html.ValidationMessageFor(Model => Model.Password, "", new { style = "color:red;" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.ConfirmPassword)
+            </td>
+            <td>
+                @Html.PasswordFor(Model => Model.ConfirmPassword, new { @MaxLength = 20 })
+                @Html.ValidationMessageFor(Model => Model.ConfirmPassword, "", new { style = "color:red;" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Role)
+            </td>
+            <td>
+                User @Html.RadioButtonFor(Model => Model.Role, "User")
+                Theatre Manager @Html.RadioButtonFor(Model => Model.Role, "Theatre Manager")
+                @Html.ValidationMessageFor(Model => Model.Role, "", new { style = "color:red;" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" />
+            </td>
+            <td>
+                <input type="reset" value="Reset" />
+            </td>
+        </tr>
+    </table>
+}
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTicketBooking.DAL", "MovieTicketBooking.DAL\MovieTicketBooking.DAL.csproj", "{1DC8B278-38D3-4490-B091-C6D1C1074C61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTicketBooking.Entity", "MovieTicketBooking.Entity\MovieTicketBooking.Entity.csproj", "{C0205F43-0D53-4061-A1F9-ECA7D2EBEBF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTicketBooking", "MovieTicketBooking\MovieTicketBooking.csproj", "{5F661A74-5FF7-4DF7-957D-C0C73475A87C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DC8B278-38D3-4490-B091-C6D1C1074C61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DC8B278-38D3-4490-B091-C6D1C1074C61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DC8B278-38D3-4490-B091-C6D1C1074C61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DC8B278-38D3-4490-B091-C6D1C1074C61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0205F43-0D53-4061-A1F9-ECA7D2EBEBF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0205F43-0D53-4061-A1F9-ECA7D2EBEBF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0205F43-0D53-4061-A1F9-ECA7D2EBEBF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0205F43-0D53-4061-A1F9-ECA7D2EBEBF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F661A74-5FF7-4DF7-957D-C0C73475A87C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F661A74-5FF7-4DF7-957D-C0C73475A87C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F661A74-5FF7-4DF7-957D-C0C73475A87C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F661A74-5FF7-4DF7-957D-C0C73475A87C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5CD6BF8C-940D-4E0F-ADAE-0BC3C3BA9820}
+	EndGlobalSection
+EndGlobal

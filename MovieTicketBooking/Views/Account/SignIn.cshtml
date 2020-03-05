@@ -1,0 +1,45 @@
+﻿@model OnlineMovieTicketMVC.Models.SignInModel
+
+@{
+    ViewBag.Title = "SignIn";
+}
+@Html.AntiForgeryToken()
+<h2>SignIn</h2>
+<h3>@ViewBag.message</h3>
+@using (Html.BeginForm("SignIn", "Account", FormMethod.Post))
+{
+    <table cellpadding="10">
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.UserName)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.UserName, new { @MaxLength = 50 })
+                @Html.ValidationMessageFor(Model => Model.UserName, "", new { style = "color:red;" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Password)
+            </td>
+            <td>
+                @Html.PasswordFor(Model => Model.Password, new { @MaxLength = 20 })
+                @Html.ValidationMessageFor(Model => Model.Password, "", new { style = "color:red;" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" />
+            </td>
+            <td>
+                <input type="reset" value="Reset" />
+            </td>
+        </tr>
+    </table>
+}
+
+
+
+
+
+
