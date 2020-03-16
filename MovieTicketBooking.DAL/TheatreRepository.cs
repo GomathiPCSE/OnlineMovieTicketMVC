@@ -8,9 +8,11 @@ namespace MovieTicketBooking.DAL
     {
         public static IEnumerable<Theatre> DisplayTheatre()
         {
-            UserContext userContext = new UserContext();
-            List<Theatre> theatreDetails = userContext.TheatreEntity.ToList();
-            return theatreDetails;
+            using (UserContext userContext = new UserContext())
+            {
+                List<Theatre> theatreDetails = userContext.TheatreEntity.ToList();
+                return theatreDetails;
+            }
         }
         public static void AddTheatre(Theatre theatre)
         {
@@ -44,6 +46,14 @@ namespace MovieTicketBooking.DAL
                 userContext.TheatreEntity.Attach(theatreEntity);
                 userContext.TheatreEntity.Remove(theatreEntity);
                 userContext.SaveChanges();
+            }
+        }
+        public static string GetStatus(int userId)
+        {
+            using(UserContext userContext=new UserContext())
+            {
+                Theatre theatre = userContext.TheatreEntity.Where(model => model.UserId == userId).SingleOrDefault();
+                return theatre.Status;
             }
         }
     }

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MovieTicketBooking.Models.SignUpNextModel>
+
+@{
+    ViewBag.Title = "DisplayTheatre";
+}
+
+<h2 class="heading">Theatre Request</h2>
+<table cellspacing="0" border="1">
+    <tr>
+        <th>Theatre Id </th>
+        <th>Theatre Name </th>
+        <th> Address</th>
+        <th>NoOfScreen</th>
+        <th>Status</th>
+    </tr>
+            @foreach (MovieTicketBooking.Models.SignUpNextModel theatre in Model)
+            {
+                <tr>
+                    <td>@theatre.TheatreId</td>
+                    <td>@theatre.TheatreName</td>
+                    <td>@theatre.Address</td>
+                    <td>@theatre.NoOfScreen</td>
+                    <td>@theatre.Status</td>
+                    <td>
+                        @Html.ActionLink("Accept", "AcceptTheatre", new { id = theatre.TheatreId }) 
+                        | @Html.ActionLink("Reject", "DeleteTheatre", new { id = theatre.TheatreId },
+
+new { onclick = "return confirm('Are sure wants to delete?');" })
+                    </td>
+                </tr>
+
+            }
+</table>
+
+©
+
+
+
+

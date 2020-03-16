@@ -21,10 +21,11 @@ namespace MovieTicketBooking.Entity
         [Required]
         [Index(IsUnique = true)]
         [MaxLength(50)]
-        public string UserName { get; set; }
+        public string  MailId{ get; set; }
         [Required]
         [MaxLength(20)]
         public string Password { get; set; }
         public string Role { get; set; }
+        public ICollection<Theatre> Theatre { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieTicketBooking.DAL;
+using System;
 using System.Web.Mvc;
 namespace MovieTicketBooking.Controllers
 {

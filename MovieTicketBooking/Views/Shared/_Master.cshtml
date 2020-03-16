@@ -1,37 +1,38 @@
-﻿<style>
-    header {
-        height: 50px;
-        width: 100%;
-        background-color: yellowgreen;
-    }
+﻿
+@{
+    Layout = null;
+}
+<head>
+    <link rel="stylesheet" href="~/styles/StyleSheet.css" />
+</head>
+<body>
+    <header>
+        <section>
+            <div>
+                <img src="~/images/movie.png" alt="Icon" class="headerIcon" />
+            </div>
+            <h2>ONLINE MOVIE TICKET BOOKING</h2>
+        </section>
+        <div class="link">
+            <ul>
+                <li>Erode</li>
+                <li>@Html.ActionLink("Sign In", "SignIn", "Account")</li>
+                <li>@Html.ActionLink("Sign Up", "SignUp", "Account")</li>
 
-    nav {
-        float: left;
-        width: 200px;
-        height: 300px;
-        background-color: wheat;
-    }
+            </ul>
+        </div>
 
-    footer {
-        background-color: yellowgreen;
-        width: 100%;
-        height: 30px;
-        float: right;
-        text-align: center;
-    }
-</style>
-<header style="text-align:center">
-    <h1>Online Movie Ticket Booking</h1>
-</header>
-<nav>
-    @Html.ActionLink("Home", "Index","Home")<br /><br />
-    @Html.ActionLink("Sign In", "SignIn","Account")<br /><br />
-    @Html.ActionLink("Sign Up", "SignUp","Account")<br/><br/>
-</nav>
-<div>
-    @RenderBody()
-</div>
-<footer style="text-align:center;">
-    <div></div>
-</footer>
+        <div class="nav">
+            <p>
+                @Html.ActionLink("Home", "Index", "Home")
+                @Html.ActionLink("Movies", "SignUp", "Account")
+                @Html.ActionLink("Theatre", "", "")
+                @Html.ActionLink("Contact Us", "", "")
+            </p>
+        </div>
+    </header>
+    <div class="content">
+        @RenderBody()
+    </div>
+</body>
 

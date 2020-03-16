@@ -7,13 +7,13 @@ namespace MovieTicketBooking.DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class Admin : IMigrationMetadata
+    public sealed partial class Update : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Admin));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Update));
         
         string IMigrationMetadata.Id
         {
-            get { return "202003021140311_Admin"; }
+            get { return "202003131112466_Update"; }
         }
         
         string IMigrationMetadata.Source

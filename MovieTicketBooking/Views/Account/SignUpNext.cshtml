@@ -1,0 +1,49 @@
+﻿@model MovieTicketBooking.Models.SignUpNextModel
+
+@{
+    ViewBag.Title = "SignUpNext";
+}
+
+<h2 class="heading">SignUp</h2>
+<h3>@ViewBag.message</h3>
+@using (Html.BeginForm("SignUpNext", "Account", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+<table cellpadding="10">
+    <tr>
+        <td>
+            @Html.LabelFor(Model => Model.TheatreName)
+        </td>
+        <td>
+            @Html.TextBoxFor(model => model.TheatreName, new { @MaxLength = 40 })
+            @Html.ValidationMessageFor(model => model.TheatreName, "", new { style = "color:red;" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(Model => Model.Address)
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.Address, new { @MaxLength = 50 })
+            @Html.ValidationMessageFor(Model => Model.Address, "", new { style = "color:red;" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(Model => Model.NoOfScreen)
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.NoOfScreen)
+            @Html.ValidationMessageFor(Model => Model.NoOfScreen, "", new { style = "color:red;" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" />
+        </td>
+    </tr>
+</table>
+}
+
+
+

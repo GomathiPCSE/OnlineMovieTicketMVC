@@ -3,13 +3,14 @@
 @{
     ViewBag.Title = "SignUp";
 }
-@Html.AntiForgeryToken()
-<h2>SignUp</h2>
+
+<h2 class="heading">SignUp</h2>
 <h2>@ViewBag.message</h2>
 @Html.ValidationSummary(false, "", new { style = "color:red;" })
 
 @using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
 {
+    @Html.AntiForgeryToken()
     <table cellpadding="10">
         <tr>
             <td>

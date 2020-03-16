@@ -7,8 +7,12 @@ namespace MovieTicketBooking.Entity
         {
 
         }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<UserAccount>()
+                .MapToStoredProcedures();
+        }
         public DbSet<UserAccount> UserEntity { get; set; }
-        public DbSet<AdminAccount> AdminEntity { get; set; }
         public DbSet<Theatre> TheatreEntity { get; set; }
     }
 }

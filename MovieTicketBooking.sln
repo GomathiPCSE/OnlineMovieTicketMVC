@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTicketBooking.Entity",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTicketBooking", "MovieTicketBooking\MovieTicketBooking.csproj", "{5F661A74-5FF7-4DF7-957D-C0C73475A87C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTicketBooking.BL", "MovieTicketBooking.BL\MovieTicketBooking.BL.csproj", "{038A0353-C054-477D-8363-845C46CB53DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5F661A74-5FF7-4DF7-957D-C0C73475A87C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F661A74-5FF7-4DF7-957D-C0C73475A87C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F661A74-5FF7-4DF7-957D-C0C73475A87C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{038A0353-C054-477D-8363-845C46CB53DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{038A0353-C054-477D-8363-845C46CB53DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{038A0353-C054-477D-8363-845C46CB53DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{038A0353-C054-477D-8363-845C46CB53DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

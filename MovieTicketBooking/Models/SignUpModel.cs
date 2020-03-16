@@ -3,6 +3,7 @@ namespace MovieTicketBooking.Models
 {
     public class SignUpModel
     {
+        public int UserId { get; set; }
         [Required]
         public string FirstName { get; set; }
         [Required]

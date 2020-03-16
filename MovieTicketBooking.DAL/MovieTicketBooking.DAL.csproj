@@ -56,10 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminRepository.cs" />
-    <Compile Include="Migrations\202003021140311_Admin.cs" />
-    <Compile Include="Migrations\202003021140311_Admin.designer.cs">
-      <DependentUpon>202003021140311_Admin.cs</DependentUpon>
+    <Compile Include="Migrations\202003131112466_Update.cs" />
+    <Compile Include="Migrations\202003131112466_Update.designer.cs">
+      <DependentUpon>202003131112466_Update.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TheatreRepository.cs" />
@@ -78,8 +77,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003021140311_Admin.resx">
-      <DependentUpon>202003021140311_Admin.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003131112466_Update.resx">
+      <DependentUpon>202003131112466_Update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
