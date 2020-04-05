@@ -3,43 +3,44 @@
 @{
     ViewBag.Title = "SignIn";
 }
+<div class="content">
+    <h2 class="heading">SignIn</h2>
+    <h3>@ViewBag.message</h3>
 
-<h2 class="heading">SignIn</h2>
-<h3>@ViewBag.message</h3>
+    @using (Html.BeginForm("SignIn", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <table cellpadding="10">
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.MailId)
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.MailId, new { @MaxLength = 50 })
+                    @Html.ValidationMessageFor(Model => Model.MailId, "", new { style = "color:red;" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.Password)
+                </td>
+                <td>
+                    @Html.PasswordFor(Model => Model.Password, new { @MaxLength = 20 })
+                    @Html.ValidationMessageFor(Model => Model.Password, "", new { style = "color:red;" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" />
+                </td>
+                <td>
+                    <input type="reset" value="Reset" />
+                </td>
+            </tr>
+        </table>
 
-@using (Html.BeginForm("SignIn", "Account", FormMethod.Post))
-{
-
-    @Html.AntiForgeryToken()
-    <table cellpadding="10">
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.MailId)
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.MailId, new { @MaxLength = 50 })
-                @Html.ValidationMessageFor(Model => Model.MailId, "", new { style = "color:red;" })
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.Password)
-            </td>
-            <td>
-                @Html.PasswordFor(Model => Model.Password, new { @MaxLength = 20 })
-                @Html.ValidationMessageFor(Model => Model.Password, "", new { style = "color:red;" })
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="submit" />
-            </td>
-            <td>
-                <input type="reset" value="Reset" />
-            </td>
-        </tr>
-    </table>
-}
+    }
+</div>
 
 
 

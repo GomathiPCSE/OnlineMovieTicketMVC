@@ -13,7 +13,7 @@ namespace MovieTicketBooking.DAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202003131112466_Update"; }
+            get { return "202004010451419_Update"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,0 +1,24 @@
+﻿@model MovieTicketBooking.Models.SignUpNextModel
+
+@{
+    ViewBag.Title = "ViewTheatre";
+}
+<div class="content">
+    <h2>Welcome to Online Movie Ticket Booking</h2>
+    <table cellspacing="0" border="1">
+        <tr>
+            <th>Theatre Name </th>
+            <th>Address </th>
+            <th> Number Of Screen</th>
+        </tr>
+        <tr>
+            <td>@Model.TheatreName</td>
+            <td>@Model.Address</td>
+            <td>@Model.NoOfScreen</td>
+            <td>
+                @Html.ActionLink("Edit", "UpdateTheatre", "Theatre", new { id = Model.TheatreId }, null) | @Html.ActionLink("View Movie", "ViewMovie", "Movie", new { id = Model.TheatreId }) |
+                @Html.ActionLink("Add Movie", "AddMovie", "Movie", new { id = Model.TheatreId, screen = Model.NoOfScreen }, null)
+            </td>
+        </tr>
+    </table>
+</div>

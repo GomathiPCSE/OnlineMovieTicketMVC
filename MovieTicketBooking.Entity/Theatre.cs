@@ -17,7 +17,6 @@ namespace MovieTicketBooking.Entity
         public UserAccount User { get; set; }
         [Required]
         [MaxLength(30)]
-        [Index(IsUnique=true)]
         public string TheatreName { get; set; }
         [Required]
         [MaxLength(50)]
@@ -25,6 +24,7 @@ namespace MovieTicketBooking.Entity
         [Required]
         public int NoOfScreen { get; set; }
         [Required]
+        [MaxLength(10)]
         public string Status { get; set; }
     }
 }

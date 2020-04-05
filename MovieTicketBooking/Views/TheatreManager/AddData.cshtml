@@ -1,0 +1,17 @@
+﻿
+
+@{
+    ViewBag.Title = "AddData";
+}
+@{
+    var item = (MovieTicketBooking.Models.SignUpNextModel)ViewData["Theatre"];
+}
+<div class="theatre">
+    <h4>Theatre Name: <b>@item.TheatreName</b></h4>
+    <h4>Address: <b>@item.Address</b></h4>
+    @Html.ActionLink("Movies","MovieIndex","TheatreManager")
+</div>
+    
+
+
+

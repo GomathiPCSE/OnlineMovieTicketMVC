@@ -15,13 +15,30 @@
         </section>
         <div class="link">
             <ul>
-                <li>Erode</li>
-                <li>@Html.ActionLink("Sign In", "SignIn", "Account")</li>
-                <li>@Html.ActionLink("Sign Up", "SignUp", "Account")</li>
+                <li class="li">Erode</li>
+                @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    <li class="li">@Html.ActionLink("Logout", "LogOff", "Account")</li>
+                }
+                else
+                {
+                    <li class="li">@Html.ActionLink("Login", "SignIn", "Account")</li>
+                }
+
+                <li class="li">@Html.ActionLink("Sign Up", "SignUp", "Account")</li>
+                @if (HttpContext.Current.User.IsInRole("Admin"))
+                {
+
+                    <li class="elink">@Html.ActionLink("View Request", "DisplayTheatre", "Admin")</li>
+                    <li class="elink">@Html.ActionLink("User Details", "DisplayUser", "Admin")</li>
+                }
+                @if (HttpContext.Current.User.IsInRole("Theatre Manager"))
+                {
+                    <li  class="elink">@Html.ActionLink("View Theatre", "ViewTheatre", "Theatre")</li>
+                }
 
             </ul>
         </div>
-
         <div class="nav">
             <p>
                 @Html.ActionLink("Home", "Index", "Home")
@@ -31,8 +48,12 @@
             </p>
         </div>
     </header>
-    <div class="content">
+    <div>
         @RenderBody()
     </div>
+    <footer>
+          ©
+    </footer>
+   
 </body>
 

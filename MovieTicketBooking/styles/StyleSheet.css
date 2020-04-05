@@ -1,28 +1,4 @@
-﻿/*body {
-}
-
-header {
-    height: 50px;
-    width: 100%;
-    background-color: yellowgreen;
-}
-
-nav {
-    float: left;
-    width: 200px;
-    height: 300px;
-    background-color: wheat;
-}
-
-footer {
-    background-color: yellowgreen;
-    width: 100%;
-    height: 30px;
-    float: right;
-    text-align: center;
-}*/
-
-section {
+﻿section {
     width: 26%;
     float: left;
     margin-left: 2%;
@@ -33,7 +9,7 @@ section {
     float: left;
 }
 
-.link li {
+.li{
     float: right;
     width: 6%;
     margin-top: 6%;
@@ -43,7 +19,12 @@ li a {
     font-size: 105%;
     text-decoration: none;
 }
-
+.elink {
+    float: right;
+    width: 10%;
+    margin-top: 6%;
+    display: inline;
+}
 h2 {
     color: darkblue;
 }
@@ -70,5 +51,34 @@ a:hover{
 .content{
     position:absolute;
     margin-top:15%;
-    margin-left:40%;
+    margin-left:35%;
+}
+.theatre{
+    width:100%;
+}
+.theatre b{
+    color:mediumvioletred;
+}
+.alignment {
+    text-align: center;
+}
+.movieAlignment {
+    position: absolute;
+    margin-top: 15%;
+}
+footer {
+    position: absolute;
+    margin-top: 45%;
+    margin-left: 0%;
+    background-color: yellowgreen;
+    color: black;
+    width: 100%;
+    height: 5%;
+}
+.copy{
+    font-size:5%;
+    margin-left:30%;
+}
+.subHeading{
+    font-weight:bold;
 }

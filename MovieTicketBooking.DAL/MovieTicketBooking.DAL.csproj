@@ -56,11 +56,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202003131112466_Update.cs" />
-    <Compile Include="Migrations\202003131112466_Update.designer.cs">
-      <DependentUpon>202003131112466_Update.cs</DependentUpon>
+    <Compile Include="Migrations\202003271543181_InitialCreate.cs" />
+    <Compile Include="Migrations\202003271543181_InitialCreate.designer.cs">
+      <DependentUpon>202003271543181_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004010451419_Update.cs" />
+    <Compile Include="Migrations\202004010451419_Update.designer.cs">
+      <DependentUpon>202004010451419_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004010816052_Movie.cs" />
+    <Compile Include="Migrations\202004010816052_Movie.designer.cs">
+      <DependentUpon>202004010816052_Movie.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="MovieRepository.cs" />
     <Compile Include="TheatreRepository.cs" />
     <Compile Include="UserContext.cs" />
     <Compile Include="UserRepository.cs" />
@@ -77,8 +86,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003131112466_Update.resx">
-      <DependentUpon>202003131112466_Update.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003271543181_InitialCreate.resx">
+      <DependentUpon>202003271543181_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004010451419_Update.resx">
+      <DependentUpon>202004010451419_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004010816052_Movie.resx">
+      <DependentUpon>202004010816052_Movie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

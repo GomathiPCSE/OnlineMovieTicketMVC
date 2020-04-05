@@ -138,11 +138,14 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MovieController.cs" />
+    <Compile Include="Controllers\TheatreController.cs" />
     <Compile Include="Controllers\TheatreManagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="App_Start\MapConfig.cs" />
+    <Compile Include="Models\MovieModel.cs" />
     <Compile Include="Models\SignInModel.cs" />
     <Compile Include="Models\SignUpModel.cs" />
     <Compile Include="Models\SignUpNextModel.cs" />
@@ -161,10 +164,19 @@
     <Content Include="Views\Shared\NotFound.cshtml" />
     <Content Include="Views\Account\SignIn.cshtml" />
     <Content Include="Views\Account\SignUpNext.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\DisplayUser.cshtml" />
     <Content Include="Views\Admin\DisplayTheatre.cshtml" />
     <Content Include="Views\Shared\_Master.cshtml" />
+    <Content Include="Views\TheatreManager\AddData.cshtml" />
+    <Content Include="Views\TheatreManager\AddMovie.cshtml" />
+    <Content Include="Views\TheatreManager\MovieIndex.cshtml" />
+    <Content Include="Views\TheatreManager\UpdateMovie.cshtml" />
+    <Content Include="Views\TheatreManager\ViewTheatre.cshtml" />
+    <Content Include="Views\Theatre\ViewTheatre.cshtml" />
+    <Content Include="Views\Theatre\UpdateTheatre.cshtml" />
+    <Content Include="Views\Movie\AddMovie.cshtml" />
+    <Content Include="Views\Movie\ViewMovie.cshtml" />
+    <Content Include="Views\Movie\Update.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -174,9 +186,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\TheatreManager\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MovieTicketBooking.BL\MovieTicketBooking.BL.csproj">
+      <Project>{038a0353-c054-477d-8363-845c46cb53db}</Project>
+      <Name>MovieTicketBooking.BL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MovieTicketBooking.DAL\MovieTicketBooking.DAL.csproj">
       <Project>{1dc8b278-38d3-4490-b091-c6d1c1074c61}</Project>
       <Name>MovieTicketBooking.DAL</Name>

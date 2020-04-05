@@ -1,0 +1,34 @@
+﻿@model  IEnumerable<MovieTicketBooking.Entity.Movie>
+
+@{
+    ViewBag.Title = "ViewMovie";
+}
+<div class="content">
+    <h2>Movies</h2>
+
+    <table border="1" align="center">
+        <tr>
+            <td>Movie Name</td>
+            <td>Movie Hour</td>
+            <td>Movie Type</td>
+            <td>Movie Description</td>
+        </tr>
+        @foreach (MovieTicketBooking.Entity.Movie item in Model)
+        {
+    <tr>
+        <td>@item.MovieName</td>
+
+        <td>@item.MovieType</td>
+        <td>
+            @item.MovieDescription
+        </td>
+        <td>@item.MovieHour</td>
+        <td>@Html.ActionLink("Edit", "EditMovie", "Movie", new { id = item.MovieId }, null)</td>
+        <td>@Html.ActionLink("Delete", "DeleteMovie", "Movie", new { id = item.MovieId }, new { onclick = "return confirm('Are you sure to delete ?');" })</td>
+    </tr>
+        }
+    </table>
+    <div class="alignment">
+        @Html.ActionLink("Back to page", "ViewTheatre", "Theatre")
+    </div>
+</div>

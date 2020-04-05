@@ -10,6 +10,7 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "MovieTicketBooking.Entity.UserContext";
         }
 
         protected override void Seed(MovieTicketBooking.Entity.UserContext context)

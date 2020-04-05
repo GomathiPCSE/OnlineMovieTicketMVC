@@ -5,12 +5,14 @@ namespace MovieTicketBooking.Models
     {
         public int UserId { get; set; }
         [Required]
+        [RegularExpression("[A-Z][a-z][a-z][a-zA-Z]*", ErrorMessage = "Invalid First Name")]
         public string FirstName { get; set; }
         [Required]
+        [RegularExpression("[A-Z][a-zA-Z]*", ErrorMessage = "Invalid First Name")]
         public string LastName { get; set; }
         [Required]
         [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"^([0-9]{10})$", ErrorMessage = "Enter the numeric digits.")]
+        [RegularExpression(@"^\(?([6-9]{1})\)?[-.]?([0-9]{9})$", ErrorMessage = "Invalid Mobile Number")]
         public long MobileNumber { get; set; }
         [Required]
         [EmailAddress(ErrorMessage = "Invalid Email Address")]

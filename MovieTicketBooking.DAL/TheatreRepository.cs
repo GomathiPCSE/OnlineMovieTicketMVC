@@ -1,59 +1,89 @@
 ﻿using MovieTicketBooking.Entity;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 namespace MovieTicketBooking.DAL
 {
-    public class TheatreRepository
+    public interface ITheatreRepository
     {
-        public static IEnumerable<Theatre> DisplayTheatre()
+        IEnumerable<Theatre> DisplayTheatre();
+        void AddTheatre(Theatre theatre);
+        Theatre GetTheatreById(int theatreId);
+        void AcceptRequest(Theatre theatre);
+        void DeleteTheatre(Theatre theatre);
+        string GetStatus(int userId);
+        Theatre GetData(int id);
+        void UpdateTheatre(Theatre theatre);
+    }
+    public class TheatreRepository : ITheatreRepository
+    {
+        public IEnumerable<Theatre> DisplayTheatre()     //Method for display the theatre details
         {
-            using (UserContext userContext = new UserContext())
+            using (UserContext userContext = new UserContext())     //creating a connection
             {
-                List<Theatre> theatreDetails = userContext.TheatreEntity.ToList();
+                List<Theatre> theatreDetails = userContext.Theatres.ToList();
                 return theatreDetails;
             }
         }
-        public static void AddTheatre(Theatre theatre)
+        public void AddTheatre(Theatre theatre)      //Method for adding the theatre details
         {
             using (UserContext theatreContext = new UserContext())
             {
-                theatreContext.TheatreEntity.Add(theatre);
-                theatreContext.SaveChanges();
+                theatreContext.Theatres.Add(theatre);  //Add the theatre details to database
+                theatreContext.SaveChanges();               //commit the save changes
             }
         }
-        public static Theatre GetTheatreById(int theatreId)
+        public Theatre GetTheatreById(int theatreId)     //Method for get theatre id
         {
             using (UserContext theatreContext = new UserContext())
             {
-                Theatre theatre = theatreContext.TheatreEntity.Where(model => model.TheatreId == theatreId).SingleOrDefault();
+                Theatre theatre = theatreContext.Theatres.Where(model => model.TheatreId == theatreId).SingleOrDefault();
                 return theatre;
             }
         }
-        public static void UpdateTheatre(Theatre theatre)
+
+        public void AcceptRequest(Theatre theatre)   //Method for accept theatre request
         {
+            theatre.Status = "Accept";
             using (UserContext userContext = new UserContext())
-            { 
+            {
                 userContext.Entry(theatre).State = EntityState.Modified;
-                userContext.SaveChanges();
+                userContext.SaveChanges();      //Commit changes
             }
         }
-        public static void DeleteTheatre(Theatre theatre)
+        public void DeleteTheatre(Theatre theatre)   //Method for delete theatre details
         {
             using (UserContext userContext = new UserContext())
             {
-                Theatre theatreEntity = userContext.TheatreEntity.Where(model => model.TheatreId == theatre.TheatreId).SingleOrDefault();
-                userContext.TheatreEntity.Attach(theatreEntity);
-                userContext.TheatreEntity.Remove(theatreEntity);
+                Theatre theatreEntity = userContext.Theatres.Where(model => model.TheatreId == theatre.TheatreId).SingleOrDefault();
+                userContext.Theatres.Attach(theatreEntity);
+                userContext.Theatres.Remove(theatreEntity);
                 userContext.SaveChanges();
             }
         }
-        public static string GetStatus(int userId)
+        public string GetStatus(int userId)      //method for getting the theatre status
         {
-            using(UserContext userContext=new UserContext())
+            using (UserContext userContext = new UserContext())
             {
-                Theatre theatre = userContext.TheatreEntity.Where(model => model.UserId == userId).SingleOrDefault();
+                Theatre theatre = userContext.Theatres.Where(model => model.UserId == userId).SingleOrDefault();
                 return theatre.Status;
+            }
+        }
+        public Theatre GetData(int id)
+        {
+            using (UserContext theatreContext = new UserContext())
+            {
+                Theatre theatre = theatreContext.Theatres.Where(model => model.UserId == id).SingleOrDefault();
+                return theatre;
+            }
+        }
+        public void UpdateTheatre(Theatre theatre)
+        {
+            using (UserContext context = new UserContext())
+            {
+                context.Entry(theatre).State = EntityState.Modified;          //Updating theatre details in database
+                context.SaveChanges();
             }
         }
     }

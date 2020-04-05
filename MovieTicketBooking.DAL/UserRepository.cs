@@ -1,69 +1,69 @@
 ﻿using System.Collections.Generic;
-using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using MovieTicketBooking.Entity;
 namespace MovieTicketBooking.DAL
 {
-    public class UserRepository
+    public interface IUserRepository
     {
-        public static int GetUserId(string mailId)
+        int GetUserId(string mailId);
+        UserAccount ValidateLogin(UserAccount user);
+        void SignUp(UserAccount user);
+        void SignUpNext(Theatre theatre);
+        IEnumerable<UserAccount> DisplayUser();
+        UserAccount GetUserById(int userId);
+        void DeleteUser(UserAccount user);
+    }
+    public class UserRepository : IUserRepository
+    {
+        public int GetUserId(string mailId)      //Method for getting user id
         {
-            using (UserContext userContext = new UserContext())
+            using (UserContext userContext = new UserContext())     //create the connection using usercontext object
             {
-                return userContext.UserEntity.Where(m => m.MailId == mailId).FirstOrDefault().UserId;
+                return userContext.Users.Where(m => m.MailId == mailId).FirstOrDefault().UserId;
             }
         }
-        public static UserAccount ValidateLogin(UserAccount user)
+        public UserAccount ValidateLogin(UserAccount user)   //Method for validate login
         {
             using (UserContext userContext = new UserContext())
             {
-                UserAccount userAccount = userContext.UserEntity.Where(u => u.MailId == user.MailId && u.Password == user.Password).FirstOrDefault();
+                UserAccount userAccount = userContext.Users.Where(u => u.MailId == user.MailId && u.Password == user.Password).FirstOrDefault();
                 return userAccount;
             }
         }
-        public static void SignUp(UserAccount user)
+        public void SignUp(UserAccount user)     //Method for Sign up
         {
             using (UserContext userContext = new UserContext())
             {
-                userContext.UserEntity.Add(user);
+                userContext.Users.Add(user);
                 userContext.SaveChanges();
             }
         }
-        public static void SignUpNext(Theatre theatre)
+        public void SignUpNext(Theatre theatre)     //Method for sign up next
         {
             using(UserContext userContext=new UserContext())
             {
-                userContext.TheatreEntity.Add(theatre);
+                userContext.Theatres.Add(theatre);
                 userContext.SaveChanges();
             }
         }
-        public static IEnumerable<UserAccount> DisplayUser()
+        public IEnumerable<UserAccount> DisplayUser()    //Method for display the user details
         {
             using (UserContext userContext = new UserContext())
             {
-                List<UserAccount> userDetails = userContext.UserEntity.ToList();
+                List<UserAccount> userDetails = userContext.Users.ToList();
                 return userDetails;
             }
         }
-        public static UserAccount GetUserById(int userId)
+        public UserAccount GetUserById(int userId)       //Method for getting user id
         {
             using (UserContext userContext = new UserContext())
             {
-                UserAccount user = userContext.UserEntity.Where(model => model.UserId == userId).SingleOrDefault();
+                UserAccount user = userContext.Users.Where(model => model.UserId == userId).SingleOrDefault();
                 return user;
             }
         }
-        public static void AcceptRequest(Theatre theatre)
-        {
-            theatre.Status = "Accept";
-            using(UserContext userContext=new UserContext())
-            {
-                userContext.Entry(theatre).State = EntityState.Modified;
-                userContext.SaveChanges();
-            }
-        }
-        public static void DeleteUser(UserAccount user)
+        public void DeleteUser(UserAccount user)     //Method for deleting the user details
         {
             using (UserContext userContext = new UserContext())
             {
