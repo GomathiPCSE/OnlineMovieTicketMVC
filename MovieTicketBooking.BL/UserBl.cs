@@ -42,7 +42,7 @@ namespace MovieTicketBooking.BL
             if(userEntity!=null&&userEntity.Role=="Theatre Manager")
             {
                 if (theatreBl.GetStatus(userEntity.UserId) == "Accept")
-                {
+                { 
                     return userEntity;
                 }
                 else 
