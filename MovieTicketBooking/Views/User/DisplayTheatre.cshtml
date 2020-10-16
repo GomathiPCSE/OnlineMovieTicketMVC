@@ -1,0 +1,20 @@
+﻿@model  IEnumerable<MovieTicketBooking.Models.SignUpNextModel>
+
+@{
+    ViewBag.Title = "DisplayTheatre";
+}
+<h2 class="content">Movie Ticket Booking</h2>
+<div class="mainDiv">
+    @foreach (MovieTicketBooking.Models.SignUpNextModel theatre in Model)
+    {
+        <div class="LeftDiv">
+            <p>
+                <b>@theatre.TheatreName</b>  <br />
+                <span class="city">@theatre.Address</span>
+            </p>
+        </div>
+        <div class="RightDiv">
+            <p> @Html.ActionLink("Book", "ViewMovie", "User", new { id = theatre.TheatreId }, null) </p> <br />
+        </div>
+    }
+</div>

@@ -1,12 +1,15 @@
 ﻿using MovieTicketBooking.BL;
 using MovieTicketBooking.Entity;
 using MovieTicketBooking.Models;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Web;
 using System.Web.Mvc;
 
 namespace MovieTicketBooking.Controllers
 {
-    [Authorize(Roles = "Theatre Manager")]
+    //[Authorize(Roles = "Theatre Manager")]
     public class MovieController : Controller
     {
         IMovieBl movieBl;
@@ -20,7 +23,7 @@ namespace MovieTicketBooking.Controllers
             return View(movie);
         }
         [HttpGet]
-        public ViewResult AddMovie(int id, int screen)
+        public ActionResult AddMovie(int id, int screen)    
         {
             TempData["Id"] = id;
             TempData["Screen"] = screen;
@@ -29,34 +32,40 @@ namespace MovieTicketBooking.Controllers
         [HttpPost]
         public ActionResult AddMovie(MovieViewModels movie)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 List<MovieModel> movieDetails = movie.MovieModels;
                 List<Movie> movieList = new List<Movie>();
                 foreach (MovieModel item in movieDetails)
                 {
+                    string fileName = Path.GetFileNameWithoutExtension(item.ImageFile.FileName);
+                    string extension = Path.GetExtension(item.ImageFile.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    item.ImagePath = "~/Image/"+fileName;
                     Movie movieDetail = AutoMapper.Mapper.Map<MovieModel, Movie>(item);
+                    fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+                    item.ImageFile.SaveAs(fileName);
                     movieList.Add(movieDetail);
                 }
                 movieBl.AddMovie(movieList);
                 return RedirectToAction("ViewTheatre", "Theatre");
-            }
+            //}
             return View();
         }
-        public ActionResult Edit(int id)
+        public ActionResult EditMovie(int id)
         {
             Movie movie = movieBl.GetMovieById(id);
             MovieModel movieModel = AutoMapper.Mapper.Map<Movie, MovieModel>(movie);
             return View(movieModel);
         }
         [HttpPost]
-        public ActionResult Update(MovieModel movieModel)
+        public ActionResult EditMovie(MovieModel movieModel)
         {
             Movie movie = AutoMapper.Mapper.Map<MovieModel, Movie>(movieModel);
             movieBl.UpdateMovie(movie);
             return RedirectToAction("ViewMovie", new { id = movie.TheatreId });
         }
-        public ActionResult Delete(int id)
+        public ActionResult DeleteMovie(int id)
         {
             Movie movie = movieBl.GetMovieById(id);
             movieBl.DeleteMovie(movie);

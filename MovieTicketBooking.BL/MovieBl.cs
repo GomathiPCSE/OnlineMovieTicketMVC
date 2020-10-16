@@ -1,7 +1,6 @@
 ﻿using MovieTicketBooking.Entity;
 using MovieTicketBooking.DAL;
 using System.Collections.Generic;
-
 namespace MovieTicketBooking.BL
 {
     public interface IMovieBl
@@ -11,6 +10,7 @@ namespace MovieTicketBooking.BL
         void DeleteMovie(Movie movie);
         void UpdateMovie(Movie movie);
         IEnumerable<Movie> GetMovie(int id);
+        IEnumerable<Movie> DisplayMovie();
     }
     public class MovieBl : IMovieBl
     {
@@ -40,6 +40,19 @@ namespace MovieTicketBooking.BL
         {
             IEnumerable<Movie> movie = movieRepository.GetMovie(id);
             return movie;
+        }
+        public IEnumerable<Movie> DisplayMovie()
+        {
+            IEnumerable<Movie> movie = movieRepository.DisplayMovie();
+            List<Movie> displayMovie = new List<Movie>();
+            foreach (var result in movie)
+            //{
+            //    if (displayMovie.Equals(result))
+            //    { }
+            //    else
+                displayMovie.Add(result);
+            //}
+            return displayMovie;
         }
     }
 }

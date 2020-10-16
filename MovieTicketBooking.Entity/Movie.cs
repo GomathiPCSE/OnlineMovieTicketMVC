@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
+
 namespace MovieTicketBooking.Entity
 {
     public class Movie
@@ -25,6 +27,9 @@ namespace MovieTicketBooking.Entity
         [Required]
         [MaxLength(50)]
         public string MovieDescription { get; set; }
+        [Required]
+        public string ImagePath { get; set; }
+       // public HttpPostedFileBase ImageFile { get; set; }
         public int TheatreId { get; set; }
 
         public Theatre TheatreDetails { get; set; }

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="MovieBl.cs" />
     <Compile Include="TheatreBl.cs" />
+    <Compile Include="TicketBookingBl.cs" />
     <Compile Include="UserBl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

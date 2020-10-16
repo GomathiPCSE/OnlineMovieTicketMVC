@@ -1,13 +1,13 @@
 ﻿using MovieTicketBooking.Entity;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.SqlClient;
 using System.Linq;
 namespace MovieTicketBooking.DAL
 {
     public interface ITheatreRepository
     {
         IEnumerable<Theatre> DisplayTheatre();
+        Theatre DisplayTheatre(int theatreId);
         void AddTheatre(Theatre theatre);
         Theatre GetTheatreById(int theatreId);
         void AcceptRequest(Theatre theatre);
@@ -84,6 +84,14 @@ namespace MovieTicketBooking.DAL
             {
                 context.Entry(theatre).State = EntityState.Modified;          //Updating theatre details in database
                 context.SaveChanges();
+            }
+        }
+        public Theatre DisplayTheatre(int theatreId)
+        {
+            using (UserContext userContext = new UserContext())
+            {
+                Theatre theatre = userContext.Theatres.Where(model => model.TheatreId == theatreId).SingleOrDefault();
+                return theatre;
             }
         }
     }

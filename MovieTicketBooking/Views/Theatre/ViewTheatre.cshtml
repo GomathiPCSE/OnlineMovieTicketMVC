@@ -16,7 +16,7 @@
             <td>@Model.Address</td>
             <td>@Model.NoOfScreen</td>
             <td>
-                @Html.ActionLink("Edit", "UpdateTheatre", "Theatre", new { id = Model.TheatreId }, null) | @Html.ActionLink("View Movie", "ViewMovie", "Movie", new { id = Model.TheatreId }) |
+                @Html.ActionLink("Edit", "UpdateTheatre", "Theatre", new { id = Model.TheatreId }, null) | @Html.ActionLink("View Movie", "ViewMovie", "Movie", new { id = Model.TheatreId },null) |
                 @Html.ActionLink("Add Movie", "AddMovie", "Movie", new { id = Model.TheatreId, screen = Model.NoOfScreen }, null)
             </td>
         </tr>

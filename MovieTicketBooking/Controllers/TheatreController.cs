@@ -1,10 +1,11 @@
 ﻿using MovieTicketBooking.BL;
 using MovieTicketBooking.Entity;
 using MovieTicketBooking.Models;
+using System.Collections.Generic;
 using System.Web.Mvc;
 namespace MovieTicketBooking.Controllers
 {
-    [Authorize(Roles = "Theatre Manager")]
+    //[Authorize(Roles = "Theatre Manager")]
     public class TheatreController : Controller
     {
         ITheatreBl theatreBl;
@@ -19,7 +20,7 @@ namespace MovieTicketBooking.Controllers
             SignUpNextModel theatre = AutoMapper.Mapper.Map<Theatre, SignUpNextModel>(theatreEntity);
             ViewData["Theatre"] = theatre;
             return View(theatre);
-        }
+        }   
         [HttpGet]
         public ActionResult UpdateTheatre(int id)
         {

@@ -140,12 +140,14 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\TheatreController.cs" />
-    <Compile Include="Controllers\TheatreManagerController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="App_Start\MapConfig.cs" />
+    <Compile Include="Models\BookingTableModel.cs" />
     <Compile Include="Models\MovieModel.cs" />
+    <Compile Include="Models\MultipleModel.cs" />
     <Compile Include="Models\SignInModel.cs" />
     <Compile Include="Models\SignUpModel.cs" />
     <Compile Include="Models\SignUpNextModel.cs" />
@@ -167,16 +169,16 @@
     <Content Include="Views\Admin\DisplayUser.cshtml" />
     <Content Include="Views\Admin\DisplayTheatre.cshtml" />
     <Content Include="Views\Shared\_Master.cshtml" />
-    <Content Include="Views\TheatreManager\AddData.cshtml" />
-    <Content Include="Views\TheatreManager\AddMovie.cshtml" />
-    <Content Include="Views\TheatreManager\MovieIndex.cshtml" />
-    <Content Include="Views\TheatreManager\UpdateMovie.cshtml" />
-    <Content Include="Views\TheatreManager\ViewTheatre.cshtml" />
     <Content Include="Views\Theatre\ViewTheatre.cshtml" />
     <Content Include="Views\Theatre\UpdateTheatre.cshtml" />
     <Content Include="Views\Movie\AddMovie.cshtml" />
     <Content Include="Views\Movie\ViewMovie.cshtml" />
     <Content Include="Views\Movie\Update.cshtml" />
+    <Content Include="Views\Movie\EditMovie.cshtml" />
+    <Content Include="Views\User\DisplayTheatre.cshtml" />
+    <Content Include="Views\User\ViewMovie.cshtml" />
+    <Content Include="Views\User\BookTicket.cshtml" />
+    <Content Include="Views\User\DisplayMovie.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -186,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Image\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MovieTicketBooking.BL\MovieTicketBooking.BL.csproj">

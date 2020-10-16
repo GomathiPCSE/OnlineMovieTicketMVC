@@ -56,6 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\202007180644101_Update1.cs" />
+    <Compile Include="Migrations\202007180644101_Update1.designer.cs">
+      <DependentUpon>202007180644101_Update1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TicketBookingRepository.cs" />
     <Compile Include="Migrations\202003271543181_InitialCreate.cs" />
     <Compile Include="Migrations\202003271543181_InitialCreate.designer.cs">
       <DependentUpon>202003271543181_InitialCreate.cs</DependentUpon>
@@ -67,6 +72,14 @@
     <Compile Include="Migrations\202004010816052_Movie.cs" />
     <Compile Include="Migrations\202004010816052_Movie.designer.cs">
       <DependentUpon>202004010816052_Movie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007160813362_Movie1.cs" />
+    <Compile Include="Migrations\202007160813362_Movie1.designer.cs">
+      <DependentUpon>202007160813362_Movie1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007170802108_Ticket.cs" />
+    <Compile Include="Migrations\202007170802108_Ticket.designer.cs">
+      <DependentUpon>202007170802108_Ticket.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MovieRepository.cs" />
@@ -94,6 +107,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004010816052_Movie.resx">
       <DependentUpon>202004010816052_Movie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007160813362_Movie1.resx">
+      <DependentUpon>202007160813362_Movie1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007170802108_Ticket.resx">
+      <DependentUpon>202007170802108_Ticket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007180644101_Update1.resx">
+      <DependentUpon>202007180644101_Update1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

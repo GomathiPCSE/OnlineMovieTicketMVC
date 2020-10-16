@@ -1,0 +1,42 @@
+﻿@using MovieTicketBooking.Models;
+@model MultipleModel
+@{
+    ViewBag.Title = "DisplayMovie";
+}
+
+<h2 class="content">Online Movie Ticket Booking</h2>
+<div class="mainDiv">
+    @foreach (var item in Model.Movies)
+    {
+        <div class="LeftDiv">
+            <div class="movie">
+                <p>
+                    <b>@item.MovieName</b> <br />
+                    @foreach (var theatre in Model.Theatres)
+                    {
+                        if (theatre != null && item.TheatreId == theatre.TheatreId)
+                        {
+                            <b>@theatre.TheatreName</b> <br />
+                            break;
+                        }
+                    }
+                    <span class="city">@item.MovieDescription</span>
+                </p>
+            </div>
+            <div class="img">
+                <a href='@Url.Action("DisplayMovie","User",new { id = item.MovieId })'>
+                    <img width="180" height="120" src="@Url.Content(item.ImagePath)" />
+                </a>
+            </div>
+        </div>
+        <div class="RightDiv">
+            <p>
+                @Html.ActionLink("10.30", "BookTicket", "User", new { show = 1, movieId = @item.MovieId }, null) &nbsp;&nbsp;
+                @Html.ActionLink("2.30", "BookTicket", "User", new { show = 2, movieId = @item.MovieId }, null)&nbsp;&nbsp;
+                @Html.ActionLink("6.30", "BookTicket", "User", new { show = 3, movieId = @item.MovieId }, null)&nbsp;&nbsp;
+                @Html.ActionLink("9.30", "BookTicket", "User", new { show = 4, movieId = @item.MovieId }, null)&nbsp;&nbsp;
+            </p><br /><br /><br /><br /><br /><br />
+        </div>
+    }
+</div>
+

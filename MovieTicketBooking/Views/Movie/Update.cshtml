@@ -5,7 +5,7 @@
 }
 <div class="content">
     <h2>Update Movie</h2>
-    @using (Html.BeginForm("UpdateMovie", "Movie", FormMethod.Post))
+    @using (Html.BeginForm("EditMovie", "Movie", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
         @Html.HiddenFor(Model => Model.MovieId)
@@ -45,6 +45,15 @@
                 <td>
                     @Html.EditorFor(Model => Model.MovieDescription)
                     @Html.ValidationMessageFor(Model => Model.MovieDescription, "", new { style = "color:red;" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.ImageFile)
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.ImageFile, new { type = "file" })
+                    @Html.ValidationMessageFor(Model => Model.ImageFile, "", new { style = "color:red;" })
                 </td>
             </tr>
             <tr>

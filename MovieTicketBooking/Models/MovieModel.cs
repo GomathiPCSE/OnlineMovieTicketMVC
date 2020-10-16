@@ -1,7 +1,9 @@
 ﻿using MovieTicketBooking.Entity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 namespace MovieTicketBooking.Models
 {
     public class MovieViewModels
@@ -10,8 +12,8 @@ namespace MovieTicketBooking.Models
 
         public List<MovieModel> MovieModels { get; set; }
     }
-    public enum Language
-        {
+    public enum MovieLanguage
+    {
         Tamil,
         English,
         Telugu,
@@ -19,12 +21,12 @@ namespace MovieTicketBooking.Models
         Kannada,
         Hindi
     }
-    public enum Certificate
+    public enum MovieCertificate
     {
         U,
         UA,
         A,
-        S   
+        S
     }
     public class MovieModel
     {
@@ -32,21 +34,26 @@ namespace MovieTicketBooking.Models
         [Required]
         public string MovieName { get; set; }
         [Required]
-        public DateTime MovieHour { get; set; }
-        [Required]
-        //[RegularExpression("[A-Z][a-zA-Z]*", ErrorMessage = "Invalid Movie Type")]
+        [RegularExpression("[A-Z][a-zA-Z]*", ErrorMessage = "Invalid Movie Type")]
         public string MovieType { get; set; }
         [Required]
-        public string MovieLanguage { get; set; }
+        public MovieLanguage Language { get; set; }
         [Required]
-        public string MovieCertificate { get; set; }
+        public MovieCertificate Certificate { get; set; }
+        [Required]
+        public DateTime MovieHour { get; set; }
         [Required]
         public DateTime ReleaseDate { get; set; }
         [Required]
-        //[DataType(DataType.MultilineText)]
+        [DataType(DataType.MultilineText)]
         public string MovieDescription { get; set; }
+        [DisplayName("Upload Img")]
+        public string ImagePath { get; set; }
+        public HttpPostedFileBase ImageFile { get; set; }
 
         public int TheatreId { get; set; }
         public Theatre Theatres { get; set; }
+
+        public ICollection<BookingTableModel> Booking { get; set; }
     }
 }

@@ -49,7 +49,7 @@ namespace MovieTicketBooking.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles="Theatre Manager")]
+       [Authorize(Roles="Theatre Manager")]
         public ActionResult SignUpNext(SignUpNextModel model)          //Action method for sign up next 
         {
             if (ModelState.IsValid)

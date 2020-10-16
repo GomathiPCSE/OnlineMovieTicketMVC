@@ -3,32 +3,42 @@
 @{
     ViewBag.Title = "ViewMovie";
 }
-<div class="content">
-    <h2>Movies</h2>
+    <div class="contentMovie">
+        <h2>Movies</h2>
 
-    <table border="1" align="center">
-        <tr>
-            <td>Movie Name</td>
-            <td>Movie Hour</td>
-            <td>Movie Type</td>
-            <td>Movie Description</td>
-        </tr>
-        @foreach (MovieTicketBooking.Entity.Movie item in Model)
-        {
-    <tr>
-        <td>@item.MovieName</td>
+        <table border="1" align="center">
+            <tr>
+                <th>Movie Name</th>
+                <th>Movie Type</th>
+                <th>Movie Language</th>
+                <th>Movie Certificate</th>
+                <th>Movie Hour</th>
+                <th>Release Date</th>
+                <th>Movie Description</th>
+            </tr>
+            @foreach (MovieTicketBooking.Entity.Movie item in Model)
+            {
+                <tr>
+                    <td>@item.MovieName</td>
 
-        <td>@item.MovieType</td>
-        <td>
-            @item.MovieDescription
-        </td>
-        <td>@item.MovieHour</td>
-        <td>@Html.ActionLink("Edit", "EditMovie", "Movie", new { id = item.MovieId }, null)</td>
-        <td>@Html.ActionLink("Delete", "DeleteMovie", "Movie", new { id = item.MovieId }, new { onclick = "return confirm('Are you sure to delete ?');" })</td>
-    </tr>
-        }
-    </table>
-    <div class="alignment">
-        @Html.ActionLink("Back to page", "ViewTheatre", "Theatre")
+                    <td>@item.MovieType</td>
+                    <td>@item.Language</td>
+                    <td>@item.Certificate</td>
+                    <td>@item.MovieHour</td>
+                    <td>@item.ReleaseDate</td>
+                    <td>
+                        @item.MovieDescription
+                    </td>
+                    <td><a href='@Url.Action("ViewMovie","Movie",new { id = item.MovieId })'>
+                        <img width="100" height="100" src="@Url.Content(item.ImagePath)" /> </a></td>
+                    <td>@Html.ActionLink("Edit", "EditMovie", "Movie", new { id = item.MovieId }, null)</td>
+                    <td>@Html.ActionLink("Delete", "DeleteMovie", "Movie", new { id = item.MovieId }, new { onclick = "return confirm('Are you sure to delete ?');" })</td>
+                </tr>
+            }
+        </table>
+        <br/>
+        <div class="alignment">
+
+            @Html.ActionLink("Back to page", "ViewTheatre", "Theatre")
+        </div>
     </div>
-</div>

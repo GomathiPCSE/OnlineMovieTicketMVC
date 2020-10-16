@@ -6,40 +6,47 @@
 
 <h2 class="content">Add Movie</h2>
 <div class="movieAlignment">
-    @using (Html.BeginForm("AddMovie", "Movie", FormMethod.Post))
+    @using (Html.BeginForm("AddMovie", "Movie", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
-
         <br />
         for (int i = 0; i < (int)TempData.Peek("Screen"); i++)
         {
+            @Html.HiddenFor(Model => Model.MovieModels[i].TheatreId, new { Value = (int)TempData.Peek("Id") })
+
             <span class="subHeading"> Screen Number : @(i + 1) </span>
             <br /><br />
             <span>&nbsp;  Movie Name &nbsp;  </span> @Html.TextBoxFor(Model => Model.MovieModels[i].MovieName)
-            @Html.ValidationMessageFor(Mode => Model.MovieModels[i].MovieName, "", new { style = "color:red;" })
+            @Html.ValidationMessageFor(Model => Model.MovieModels[i].MovieName, "", new { style = "color:red;" })
 
             <span>&nbsp;   Movie Type&nbsp;</span> @Html.TextBoxFor(Model => Model.MovieModels[i].MovieType)
             @Html.ValidationMessageFor(Model => Model.MovieModels[i].MovieType, "", new { style = "color:red;" })
 
-            <span>&nbsp;   Movie Hour &nbsp;</span> @Html.TextBoxFor(Model => Model.MovieModels[i].MovieHour)
+            <span>&nbsp;   Movie Language &nbsp;</span>@*@Html.TextBoxFor(Model => Model.MovieModels[i].Language)*@
+            @Html.DropDownListFor(Model => Model.MovieModels[i].Language,
+                new SelectList(Enum.GetValues(typeof(MovieTicketBooking.Models.MovieLanguage))),
+                "Select Language")
+
+            @Html.ValidationMessageFor(Model => Model.MovieModels[i].Language, "", new { style = "color:red;" })
+
+            <span>&nbsp;   Movie Certificate &nbsp;</span> @*@Html.TextBoxFor(Model => Model.MovieModels[i].Certificate)*@
+            @Html.DropDownListFor(Model => Model.MovieModels[i].Certificate,
+                new SelectList(Enum.GetValues(typeof(MovieTicketBooking.Models.MovieCertificate))), "Select Certificate")
+            @Html.ValidationMessageFor(Model => Model.MovieModels[i].Certificate, "", new { style = "color:red;" })
+
+            <br /><br />
+            <span>&nbsp;   Movie Hour &nbsp;</span> @Html.TextBoxFor(Model => Model.MovieModels[i].MovieHour, new { @type = "time" })
             @Html.ValidationMessageFor(Model => Model.MovieModels[i].MovieHour, "", new { style = "color:red;" })
 
-            <span>&nbsp;   Movie Language &nbsp;</span>@Html.TextBoxFor(Model => Model.MovieModels[i].MovieLanguage)
-            @*@Html.DropDownListFor(Model => Model.MovieModels[i].MovieLanguage,
-                new SelectList(Enum.GetValues(typeof(MovieTicketBooking.Models.Language))),
-                "Select Language")*@
-            @Html.ValidationMessageFor(Model => Model.MovieModels[i].MovieLanguage, "", new { style = "color:red;" })
-            <br /><br />
-            <span>&nbsp;   Movie Certificate &nbsp;</span> @Html.TextBoxFor(Model => Model.MovieModels[i].MovieCertificate)
-            @*@Html.DropDownListFor(Model => Model.MovieModels[i].MovieCertificate,
-                new SelectList(Enum.GetValues(typeof(MovieTicketBooking.Models.Certificate))), "Select Certificate")*@
-            @Html.ValidationMessageFor(Model => Model.MovieModels[i].MovieCertificate, "", new { style = "color:red;" })
-
-            <span> &nbsp; Release Date &nbsp;</span>@Html.TextBoxFor(Model => Model.MovieModels[i].ReleaseDate)
+            <span> &nbsp; Release Date &nbsp;</span>@Html.TextBoxFor(Model => Model.MovieModels[i].ReleaseDate, new { @type = "date" })
             @Html.ValidationMessageFor(Model => Model.MovieModels[i].ReleaseDate, "", new { style = "color:red;" })
 
             <span> &nbsp; Movie Roles &nbsp;</span>@Html.TextBoxFor(Model => Model.MovieModels[i].MovieDescription)
             @Html.ValidationMessageFor(Model => Model.MovieModels[i].MovieDescription, "", new { style = "color:red;" })
-            @Html.HiddenFor(Model => Model.MovieModels[i].TheatreId, new { value = (int)TempData.Peek("Id") })
+
+            <span> &nbsp; Upload Img &nbsp;</span>
+            @Html.TextBoxFor(Model => Model.MovieModels[i].ImageFile,new { type = "file" })
+            @Html.ValidationMessageFor(Model => Model.MovieModels[i].ImageFile, "", new { style = "color:red;" })
+
             <br />
             <br />
             <br /><br />

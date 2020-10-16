@@ -17,5 +17,6 @@ namespace MovieTicketBooking.Entity
         public DbSet<UserAccount> Users { get; set; }
         public DbSet<Theatre> Theatres { get; set; }
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<BookingTable> BookingTables { get; set; }
     }
 }

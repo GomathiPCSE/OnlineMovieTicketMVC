@@ -14,7 +14,6 @@ namespace MovieTicketBooking.Models
         [Required]
         [RegularExpression(@"^[0-9]*$", ErrorMessage = "Enter the Numeric value")]
         public int NoOfScreen { get; set; }
-        //[Required]
         public string Status { get; set; }
     }
 }

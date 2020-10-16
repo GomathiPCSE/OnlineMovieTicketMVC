@@ -42,8 +42,8 @@
         <div class="nav">
             <p>
                 @Html.ActionLink("Home", "Index", "Home")
-                @Html.ActionLink("Movies", "SignUp", "Account")
-                @Html.ActionLink("Theatre", "", "")
+                @Html.ActionLink("Movies", "DisplayMovie", "User")
+                @Html.ActionLink("Theatre", "DisplayTheatre", "User")
                 @Html.ActionLink("Contact Us", "", "")
             </p>
         </div>
@@ -51,6 +51,10 @@
     <div>
         @RenderBody()
     </div>
+
+
+
+
     <footer>
           ©
     </footer>

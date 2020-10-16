@@ -1,0 +1,25 @@
+﻿@model  IEnumerable<MovieTicketBooking.Entity.Movie>
+
+@{
+    ViewBag.Title = "ViewMovie";
+}
+<h2 class="content">Online Movie Ticket Booking</h2>
+<div class="mainDiv">
+    @foreach (MovieTicketBooking.Entity.Movie item in Model)
+    {
+        <div class="LeftDiv">
+            <p>
+                <b>@item.MovieName</b>  <br />
+                <span class="city">@item.MovieDescription</span>
+            </p>
+        </div>
+        <div class="RightDiv">
+            <p>
+                @Html.ActionLink("10.30", "BookTicket", "User", new { show = 1, movieId = @item.MovieId }, null) &nbsp;&nbsp;
+                @Html.ActionLink("2.30", "BookTicket", "User", new { show = 2, movieId = @item.MovieId }, null)&nbsp;&nbsp;
+                @Html.ActionLink("6.30", "BookTicket", "User", new { show = 3, movieId = @item.MovieId }, null)&nbsp;&nbsp;
+                @Html.ActionLink("9.30", "BookTicket", "User", new { show = 4, movieId = @item.MovieId }, null)&nbsp;&nbsp;
+            </p><br />
+        </div>
+    }
+</div>

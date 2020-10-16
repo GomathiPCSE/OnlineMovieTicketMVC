@@ -39,7 +39,7 @@ namespace MovieTicketBooking.BL
         public UserAccount ValidateLogin(UserAccount user)
         {
             UserAccount userEntity= userRepository.ValidateLogin(user);
-            if(userEntity.Role=="Theatre Manager")
+            if(userEntity!=null&&userEntity.Role=="Theatre Manager")
             {
                 if (theatreBl.GetStatus(userEntity.UserId) == "Accept")
                 {

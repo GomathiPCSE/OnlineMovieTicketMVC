@@ -1,0 +1,52 @@
+﻿@model MovieTicketBooking.Models.BookingTableModel
+
+@{
+    ViewBag.Title = "BookTicket";
+}
+
+    <div class="content">
+        <h2 class="heading">Book Ticket</h2>
+        @*<h2>@ViewBag.message</h2>*@
+        @Html.ValidationSummary(false, "", new { style = "color:red;" })
+
+        @using (Html.BeginForm("BookTicket", "User", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(Model => Model.MovieId, new { Value = (int)TempData.Peek("movieId") })
+            <table cellpadding="10">
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model=>model.Movies.MovieName,new { value = TempData.Peek("movieName") })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model=>model.DateToPresent)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(Model => Model.DateToPresent, new { @type = "date" })
+                        @Html.ValidationMessageFor(Model => Model.DateToPresent, "", new { style = "color:red;" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(Model => Model.Amount)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Amount, new { @MaxLength = 30 })
+                        @Html.ValidationMessageFor(model => model.Amount, "", new { style = "color:red;" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" />
+                    </td>
+                    <td>
+                        <input type="reset" value="Reset" />
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+
+

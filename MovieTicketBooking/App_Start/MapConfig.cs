@@ -14,6 +14,7 @@ namespace MovieTicketBooking.Models
                 .ForMember(dest => dest.Status, opt =>opt.MapFrom(src=> "Request"));
                 config.CreateMap<UserAccount, SignUpModel>();
                 config.CreateMap<MovieModel, Movie>();
+                config.CreateMap<Movie, MovieModel>();
             });
         }
     }
