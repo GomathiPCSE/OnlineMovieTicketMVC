@@ -38,18 +38,18 @@ namespace MovieTicketBooking.BL
         }
         public UserAccount ValidateLogin(UserAccount user)
         {
-            UserAccount userEntity= userRepository.ValidateLogin(user);
-            if(userEntity!=null&&userEntity.Role=="Theatre Manager")
+            UserAccount userEntity = userRepository.ValidateLogin(user);
+            if (userEntity != null && userEntity.Role == "Theatre Manager")
             {
                 if (theatreBl.GetStatus(userEntity.UserId) == "Accept")
-                { 
+                {
                     return userEntity;
                 }
-                else 
+                else
                     return null;
             }
             else
-            return userEntity;
+                return userEntity;
         }
         public IEnumerable<UserAccount> DisplayUser()
         {
