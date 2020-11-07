@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTicketBooking.DAL", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTicketBooking.Entity", "MovieTicketBooking.Entity\MovieTicketBooking.Entity.csproj", "{C0205F43-0D53-4061-A1F9-ECA7D2EBEBF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTicketBooking", "MovieTicketBooking\MovieTicketBooking.csproj", "{5F661A74-5FF7-4DF7-957D-C0C73475A87C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTicketBooking.BL", "MovieTicketBooking.BL\MovieTicketBooking.BL.csproj", "{038A0353-C054-477D-8363-845C46CB53DB}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{C0205F43-0D53-4061-A1F9-ECA7D2EBEBF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0205F43-0D53-4061-A1F9-ECA7D2EBEBF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0205F43-0D53-4061-A1F9-ECA7D2EBEBF8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5F661A74-5FF7-4DF7-957D-C0C73475A87C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5F661A74-5FF7-4DF7-957D-C0C73475A87C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5F661A74-5FF7-4DF7-957D-C0C73475A87C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5F661A74-5FF7-4DF7-957D-C0C73475A87C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{038A0353-C054-477D-8363-845C46CB53DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{038A0353-C054-477D-8363-845C46CB53DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{038A0353-C054-477D-8363-845C46CB53DB}.Release|Any CPU.ActiveCfg = Release|Any CPU

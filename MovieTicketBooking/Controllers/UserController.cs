@@ -10,7 +10,7 @@ namespace MovieTicketBooking.Controllers
     {
         // GET: User
         ITheatreBl theatreBl;
-        IMovieBl movieB;
+        IMovieBl movieBl;
         public UserController()
         {
             theatreBl = new TheatreBl();
